@@ -10,3 +10,9 @@ docs/_templates
 src/dist
 src/node_modules
 src/web-ext-artifacts
+
+.github/copilot-instructions.md
+
+.vscode/mcp.json
+
+src/pnpm-lock.yaml
