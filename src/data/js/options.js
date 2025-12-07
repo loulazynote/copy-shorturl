@@ -83,9 +83,8 @@ function showHideDetails() {
   // Show / hide details depending on service selection.
   let selected = document.querySelector('#service').value;
 
-  ['bitly', 'kuttit', 'tly', 'custom'].forEach((service) => {
-    document.querySelector('#' + service + '_details').style.display =
-      selected === service ? 'block' : 'none';
+  ['bitly', 'kuttit', 'tly', 'custom'].forEach(service => {
+    document.querySelector('#' + service + '_details').style.display = (selected === service) ? 'block': 'none';
   });
 
   // Max canonical URL length makes no sense with no shortening service.
