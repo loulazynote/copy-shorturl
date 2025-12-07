@@ -113,7 +113,7 @@ const serviceUrls = {
         long_url: url,
       };
 
-      if (prefs['tly_domain']) {
+      if (prefs['tly_domain'] != '') {
         // Use custom domain only if set.
         body['domain'] = prefs['tly_domain'];
       }
