@@ -37,6 +37,7 @@
           <option value="vurl">vurl.com (https://vurl.com/abcde)</option>
           <option value="bitly">bit.ly (http://bit.ly/abcde)</option>
           <option value="kuttit">kutt.it (http://kutt.it/abcde)</option>
+          <option value="tly">t.ly (https://t.ly/abcde)</option>
           <option value="custom" data-i18n="service_custom">custom</option>
         </select>
       </p>
@@ -57,6 +58,17 @@
         <label for="kuttit_domain" data-i18n="kuttit_domain_title">kutt.it domain</label>
         <input type="text" id="kuttit_domain">
         <a href="https://kutt.it/settings"><em data-i18n="kuttit_domain_description">Kutt.it custom domain</em></a>
+      </p>
+
+      <!-- t.ly API key -->
+      <p id="tly_details" style="display: none">
+        <label for="tly_apikey" data-i18n="tly_apikey_title">t.ly api key</label>
+        <input type="password" id="tly_apikey" />
+        <a href="https://t.ly/settings#/api"><em data-i18n="tly_apikey_description">Acquire API key</em></a>
+      
+        <label for="tly_domain" data-i18n="tly_domain_title">t.ly domain</label>
+        <input type="text" id="tly_domain" />
+        <a href="https://t.ly/settings#/domain"><em data-i18n="tly_domain_description">t.ly custom domain</em></a>
       </p>
 
       <!-- Custom URL + documentation link -->

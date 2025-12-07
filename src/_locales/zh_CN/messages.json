@@ -58,20 +58,36 @@
     "description": "Options: Link to generate Bitly API key."
   },
   "kuttit_apikey_title": {
-    "message": "Kutt.it API Key",
+    "message": "Kutt.it API 键值",
     "description": "Options: Label for Kutt.it API key text field."
   },
   "kuttit_apikey_description": {
-    "message": "Generate an API key with Kutt.it",
+    "message": "建立 Kutt.it 的 API 键值",
     "description": "Options: Link to generate Kutt.it API key."
   },
   "kuttit_domain_title": {
-    "message": "Kutt.it Custom Domain",
+    "message": "Kutt.it 自定义网域",
     "description": "Options: Label for Kutt.it custom domain text field."
   },
   "kuttit_domain_description": {
-    "message": "(optional) use a custom domain with kutt.it",
+    "message": "(选用) 使用 Kutt.it 的自定义网域",
     "description": "Options: Link to set Kutt.it custom domain."
+  },
+  "tly_apikey_title": {
+    "message": "t.ly API 键值",
+    "description": "Options: Label for t.ly API key text field."
+  },
+  "tly_apikey_description": {
+    "message": "建立 t.ly 的 API 键值",
+    "description": "Options: Link to generate t.ly API key."
+  },
+  "tly_domain_title": {
+    "message": "t.ly 自定义网域",
+    "description": "Options: Label for t.ly custom domain text field."
+  },
+  "tly_domain_description": {
+    "message": "(选用) 使用 t.ly 的自定义网域",
+    "description": "Options: Link to set t.ly custom domain."
   },
   "customurl_title": {
     "message": "自定义网址",

@@ -93,6 +93,41 @@ const serviceUrls = {
     force_https: true
   },
 
+  tly: {
+    // https://t.ly/static_docs/index.html#short-link-management
+    request: async (url) => {
+      const ret = await browser.storage.local.get('prefs');
+      const prefs = ret['prefs'] || {};
+      if (!prefs.tly_apikey) {
+        throw new Error(_('apikey_error'));
+      }
+
+      let headers = {
+        Authorization: `Bearer ${prefs.tly_apikey}`,
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      };
+
+      let body = {
+        long_url: url,
+      };
+
+      if (prefs['tly_domain'] != '') {
+        // Use custom domain only if set.
+        body['domain'] = prefs['tly_domain'];
+      }
+      return fetch('https://api.t.ly/api/v1/link/shorten', {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify(body),
+      });
+    },
+    result: async (response) => {
+      const res = await response.json();
+      return res['short_url'];
+    },
+    force_https: true,
+  },
   /** Special services: Cannot be chosen manually. **/
   // Note: No special services implemented at this time after git.io shut down.
 }

@@ -73,6 +73,22 @@
     "message": "(optional) use a custom domain with kutt.it",
     "description": "Options: Link to set Kutt.it custom domain."
   },
+  "tly_apikey_title": {
+    "message": "t.ly API Key",
+    "description": "Options: Label for t.ly API key text field."
+  },
+  "tly_apikey_description": {
+    "message": "Generate an API key with t.ly",
+    "description": "Options: Link to generate t.ly API key."
+  },
+  "tly_domain_title": {
+    "message": "t.ly Custom Domain",
+    "description": "Options: Label for t.ly custom domain text field."
+  },
+  "tly_domain_description": {
+    "message": "(optional) use a custom domain with t.ly",
+    "description": "Options: Link to set t.ly custom domain."
+  },
   "customurl_title": {
     "message": "Custom URL",
     "description": "Options: Label for custom URL text field."

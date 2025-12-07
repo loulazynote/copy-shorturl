@@ -15,6 +15,14 @@ const options = {
     attr: 'value',
     def: ''
   },
+  tly_apikey: {
+    attr: 'value',
+    def: '',
+  },
+  tly_domain: {
+    attr: 'value',
+    def: '',
+  },
   custom_url: {
     attr: 'value',
     def: ''
@@ -71,7 +79,7 @@ function showHideDetails() {
   // Show / hide details depending on service selection.
   let selected = document.querySelector('#service').value;
 
-  ['bitly', 'kuttit', 'custom'].forEach(service => {
+  ['bitly', 'kuttit', 'tly', 'custom'].forEach(service => {
     document.querySelector('#' + service + '_details').style.display = (selected === service) ? 'block': 'none';
   });
 
