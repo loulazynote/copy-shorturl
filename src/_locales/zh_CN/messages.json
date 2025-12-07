@@ -1,163 +1,163 @@
 {
-    "extensionDescription": {
-        "message": "检测或创建当前页面的短网址。",
-        "description": ""
-    },
-    "extensionName": {
-        "message": "Copy ShortURL",
-        "description": "name of extension"
-    },
-    "browserAction_label": {
-        "message": "复制短网址",
-        "description": "Toolbar button label text."
-    },
-    "menuitem_label": {
-        "message": "复制短网址",
-        "description": "Context menu item label text for page."
-    },
-    "shorten_link_label": {
-        "message": "为此链接复制短网址",
-        "description": "Context menu item label text for link."
-    },
-    "shorten_img_label": {
-        "message": "Copy ShortURL for this image",
-        "description": "Context menu item label text for image."
-    },
+  "extensionDescription": {
+    "message": "检测或创建当前页面的短网址。",
+    "description": ""
+  },
+  "extensionName": {
+    "message": "Copy ShortURL",
+    "description": "name of extension"
+  },
+  "browserAction_label": {
+    "message": "复制短网址",
+    "description": "Toolbar button label text."
+  },
+  "menuitem_label": {
+    "message": "复制短网址",
+    "description": "Context menu item label text for page."
+  },
+  "shorten_link_label": {
+    "message": "为此链接复制短网址",
+    "description": "Context menu item label text for link."
+  },
+  "shorten_img_label": {
+    "message": "Copy ShortURL for this image",
+    "description": "Context menu item label text for image."
+  },
 
-    "shorten_error": {
-        "message": "很抱歉，创建短网址出错。",
-        "description": "Error message when shortening URL was unsuccessful."
-    },
-    "apikey_error": {
-        "message": "没有在选项中配置 API 键值。",
-        "description": "Error message when shortening service needs an API key and none was provided."
-    },
-    "error_host_permission": {
-        "message": "抱歉，Copy ShortURL 因浏览器限制不能在此页面上运行。",
-        "description": "Error message when running on about: or addons.mozilla.org."
-    },
+  "shorten_error": {
+    "message": "很抱歉，创建短网址出错。",
+    "description": "Error message when shortening URL was unsuccessful."
+  },
+  "apikey_error": {
+    "message": "没有在选项中配置 API 键值。",
+    "description": "Error message when shortening service needs an API key and none was provided."
+  },
+  "error_host_permission": {
+    "message": "抱歉，Copy ShortURL 因浏览器限制不能在此页面上运行。",
+    "description": "Error message when running on about: or addons.mozilla.org."
+  },
 
-    "service_title": {
-        "message": "网址缩短服务",
-        "description": "Options: Label for selecting which service (is.gd, ...) to use."
-    },
-    "service_none": {
-        "message": "(No external service)",
-        "description": "Options: No shortening service, copy found short URL or full URL only."
-    },
-    "service_custom": {
-        "message": "自定义 (下方指定)",
-        "description": "Options: Placeholder for custom URL option in dropdown."
-    },
-    "bitly_apikey_title": {
-        "message": "Bitly API 键值",
-        "description": "Options: Label for Bitly API key text field."
-    },
-    "bitly_apikey_description": {
-        "message": "在 Bitly 上生成 API 键值",
-        "description": "Options: Link to generate Bitly API key."
-    },
-    "kuttit_apikey_title": {
-        "message": "Kutt.it API 键值",
-        "description": "Options: Label for Kutt.it API key text field."
-    },
-    "kuttit_apikey_description": {
-        "message": "建立 Kutt.it 的 API 键值",
-        "description": "Options: Link to generate Kutt.it API key."
-    },
-    "kuttit_domain_title": {
-        "message": "Kutt.it 自定义网域",
-        "description": "Options: Label for Kutt.it custom domain text field."
-    },
-    "kuttit_domain_description": {
-        "message": "(选用) 使用 Kutt.it 的自定义网域",
-        "description": "Options: Link to set Kutt.it custom domain."
-    },
-    "tly_apikey_title": {
-        "message": "t.ly API 键值",
-        "description": "Options: Label for t.ly API key text field."
-    },
-    "tly_apikey_description": {
-        "message": "建立 t.ly 的 API 键值",
-        "description": "Options: Link to generate t.ly API key."
-    },
-    "tly_domain_title": {
-        "message": "t.ly 自定义网域",
-        "description": "Options: Label for t.ly custom domain text field."
-    },
-    "tly_domain_description": {
-        "message": "(选用) 使用 t.ly 的自定义网域",
-        "description": "Options: Link to set t.ly custom domain."
-    },
-    "customurl_title": {
-        "message": "自定义网址",
-        "description": "Options: Label for custom URL text field."
-    },
-    "customurl_description": {
-        "message": "使用 %URL% 作为长（原始）网址的占位符",
-        "description": "Options: Help text for custom URL."
-    },
+  "service_title": {
+    "message": "网址缩短服务",
+    "description": "Options: Label for selecting which service (is.gd, ...) to use."
+  },
+  "service_none": {
+    "message": "(No external service)",
+    "description": "Options: No shortening service, copy found short URL or full URL only."
+  },
+  "service_custom": {
+    "message": "自定义 (下方指定)",
+    "description": "Options: Placeholder for custom URL option in dropdown."
+  },
+  "bitly_apikey_title": {
+    "message": "Bitly API 键值",
+    "description": "Options: Label for Bitly API key text field."
+  },
+  "bitly_apikey_description": {
+    "message": "在 Bitly 上生成 API 键值",
+    "description": "Options: Link to generate Bitly API key."
+  },
+  "kuttit_apikey_title": {
+    "message": "Kutt.it API 键值",
+    "description": "Options: Label for Kutt.it API key text field."
+  },
+  "kuttit_apikey_description": {
+    "message": "建立 Kutt.it 的 API 键值",
+    "description": "Options: Link to generate Kutt.it API key."
+  },
+  "kuttit_domain_title": {
+    "message": "Kutt.it 自定义网域",
+    "description": "Options: Label for Kutt.it custom domain text field."
+  },
+  "kuttit_domain_description": {
+    "message": "(选用) 使用 Kutt.it 的自定义网域",
+    "description": "Options: Link to set Kutt.it custom domain."
+  },
+  "tly_apikey_title": {
+    "message": "t.ly API 键值",
+    "description": "Options: Label for t.ly API key text field."
+  },
+  "tly_apikey_description": {
+    "message": "建立 t.ly 的 API 键值",
+    "description": "Options: Link to generate t.ly API key."
+  },
+  "tly_domain_title": {
+    "message": "t.ly 自定义网域",
+    "description": "Options: Label for t.ly custom domain text field."
+  },
+  "tly_domain_description": {
+    "message": "(选用) 使用 t.ly 的自定义网域",
+    "description": "Options: Link to set t.ly custom domain."
+  },
+  "customurl_title": {
+    "message": "自定义网址",
+    "description": "Options: Label for custom URL text field."
+  },
+  "customurl_description": {
+    "message": "使用 %URL% 作为长（原始）网址的占位符",
+    "description": "Options: Help text for custom URL."
+  },
 
-    "shorten_canonical_title": {
-        "message": "缩短规范的网址，如果字符数超过",
-        "description": "Options: Label for maximum URL length before forcing shortening."
-    },
-    "shorten_canonical_description": {
-        "message": "部分网站本身提供不太短的规范短网址。此处指定长度超过 X 个字符时才使用缩短服务 (0 = 此情况不缩短)",
-        "description": "Options: Help text for forcing shortening of long canonical URLs."
-    },
+  "shorten_canonical_title": {
+    "message": "缩短规范的网址，如果字符数超过",
+    "description": "Options: Label for maximum URL length before forcing shortening."
+  },
+  "shorten_canonical_description": {
+    "message": "部分网站本身提供不太短的规范短网址。此处指定长度超过 X 个字符时才使用缩短服务 (0 = 此情况不缩短)",
+    "description": "Options: Help text for forcing shortening of long canonical URLs."
+  },
 
-    "use_special_title": {
-        "message": "Use special case URL formats for known sites",
-        "description": "Options: Label for using youtu.be and other special known short URLs."
-    },
-    "use_special_description": {
-        "message": "Some sites have special shortening formats, like youtu.be.",
-        "description": "Options: Help text for using special shortening cases."
-    },
+  "use_special_title": {
+    "message": "Use special case URL formats for known sites",
+    "description": "Options: Label for using youtu.be and other special known short URLs."
+  },
+  "use_special_description": {
+    "message": "Some sites have special shortening formats, like youtu.be.",
+    "description": "Options: Help text for using special shortening cases."
+  },
 
-    "strip_utm_title": {
-        "message": "移除网址中的 ?utm_* 参数",
-        "description": "Options: Label for removing known marketing parameters from URLs."
-    },
-    "strip_utm_description": {
-        "message": "营销活动经常添加非必要的 ?utm_campaign=something 参数到网址，它可以安全移除。",
-        "description": "Options: Help text for removing known marketing parameters from URL."
-    },
+  "strip_utm_title": {
+    "message": "移除网址中的 ?utm_* 参数",
+    "description": "Options: Label for removing known marketing parameters from URLs."
+  },
+  "strip_utm_description": {
+    "message": "营销活动经常添加非必要的 ?utm_campaign=something 参数到网址，它可以安全移除。",
+    "description": "Options: Help text for removing known marketing parameters from URL."
+  },
 
-    "keep_hash_title": {
-        "message": "Keep #hash in final URL",
-        "description": "Options: Label for keeping URL #hash if present."
-    },
-    "keep_hash_description": {
-        "message": "Add #hash part of mysite.com/page#hash back to shortened URL.",
-        "description": "Options: Help text for keeping URL #hash if present."
-    },
+  "keep_hash_title": {
+    "message": "Keep #hash in final URL",
+    "description": "Options: Label for keeping URL #hash if present."
+  },
+  "keep_hash_description": {
+    "message": "Add #hash part of mysite.com/page#hash back to shortened URL.",
+    "description": "Options: Help text for keeping URL #hash if present."
+  },
 
-    "notify_title": {
-        "message": "成功时显示通知",
-        "description": "Options: Label for showing notification popup when URL was generated."
-    },
-    "notify_description": {
-        "message": "发生错误始终会显示通知。",
-        "description": "Options: Help text for showing notification popup on success."
-    },
+  "notify_title": {
+    "message": "成功时显示通知",
+    "description": "Options: Label for showing notification popup when URL was generated."
+  },
+  "notify_description": {
+    "message": "发生错误始终会显示通知。",
+    "description": "Options: Help text for showing notification popup on success."
+  },
 
-    "copy_title_title": {
-        "message": "Copy page title in addition to URL",
-        "description": "Options: Label for copying page title along with URL."
-    },
-    "copy_title_description": {
-        "message": "Example: 'So why are Pandas so cute? http://nyti.ms/2xGSRyh'",
-        "description": "Options: Help text for copying page title with URL."
-    },
+  "copy_title_title": {
+    "message": "Copy page title in addition to URL",
+    "description": "Options: Label for copying page title along with URL."
+  },
+  "copy_title_description": {
+    "message": "Example: 'So why are Pandas so cute? http://nyti.ms/2xGSRyh'",
+    "description": "Options: Help text for copying page title with URL."
+  },
 
-    "save_button": {
-        "message": "保存",
-        "description": "Options: Button label for save options."
-    },
-    "saved_notice": {
-        "message": "Saved!",
-        "description": "Options: Indicator that options were saved."
-    }
+  "save_button": {
+    "message": "保存",
+    "description": "Options: Button label for save options."
+  },
+  "saved_notice": {
+    "message": "Saved!",
+    "description": "Options: Indicator that options were saved."
+  }
 }

@@ -1,163 +1,163 @@
 {
-    "extensionDescription": {
-        "message": "Eine Kurz-URL für die aktuelle Seite finden oder erstellen.",
-        "description": ""
-    },
-    "extensionName": {
-        "message": "Copy ShortURL",
-        "description": "name of extension"
-    },
-    "browserAction_label": {
-        "message": "Kurz-URL kopieren",
-        "description": "Toolbar button label text."
-    },
-    "menuitem_label": {
-        "message": "Kurz-URL kopieren",
-        "description": "Context menu item label text for page."
-    },
-    "shorten_link_label": {
-        "message": "Kurz-URL für diesen Link kopieren",
-        "description": "Context menu item label text for link."
-    },
-    "shorten_img_label": {
-        "message": "Kurz-URL für dieses Bild kopieren",
-        "description": "Context menu item label text for image."
-    },
+  "extensionDescription": {
+    "message": "Eine Kurz-URL für die aktuelle Seite finden oder erstellen.",
+    "description": ""
+  },
+  "extensionName": {
+    "message": "Copy ShortURL",
+    "description": "name of extension"
+  },
+  "browserAction_label": {
+    "message": "Kurz-URL kopieren",
+    "description": "Toolbar button label text."
+  },
+  "menuitem_label": {
+    "message": "Kurz-URL kopieren",
+    "description": "Context menu item label text for page."
+  },
+  "shorten_link_label": {
+    "message": "Kurz-URL für diesen Link kopieren",
+    "description": "Context menu item label text for link."
+  },
+  "shorten_img_label": {
+    "message": "Kurz-URL für dieses Bild kopieren",
+    "description": "Context menu item label text for image."
+  },
 
-    "shorten_error": {
-        "message": "Oh-oh, Fehler beim Erstellen der Kurz-URL.",
-        "description": "Error message when shortening URL was unsuccessful."
-    },
-    "apikey_error": {
-        "message": "Kein API key in den Einstellungen.",
-        "description": "Error message when shortening service needs an API key and none was provided."
-    },
-    "error_host_permission": {
-        "message": "Leider funktioniert Copy ShortURL nicht auf Seiten, die der Browser beschränkt.",
-        "description": "Error message when running on about: or addons.mozilla.org."
-    },
+  "shorten_error": {
+    "message": "Oh-oh, Fehler beim Erstellen der Kurz-URL.",
+    "description": "Error message when shortening URL was unsuccessful."
+  },
+  "apikey_error": {
+    "message": "Kein API key in den Einstellungen.",
+    "description": "Error message when shortening service needs an API key and none was provided."
+  },
+  "error_host_permission": {
+    "message": "Leider funktioniert Copy ShortURL nicht auf Seiten, die der Browser beschränkt.",
+    "description": "Error message when running on about: or addons.mozilla.org."
+  },
 
-    "service_title": {
-        "message": "Kurz-URL-Service",
-        "description": "Options: Label for selecting which service (is.gd, ...) to use."
-    },
-    "service_none": {
-        "message": "(Kein externer Service)",
-        "description": "Options: No shortening service, copy found short URL or full URL only."
-    },
-    "service_custom": {
-        "message": "Benutzerdefiniert (unten angeben)",
-        "description": "Options: Placeholder for custom URL option in dropdown."
-    },
-    "bitly_apikey_title": {
-        "message": "Bitly Generic Access Token",
-        "description": "Options: Label for Bitly API key text field."
-    },
-    "bitly_apikey_description": {
-        "message": "API key mit Bitly anlegen",
-        "description": "Options: Link to generate Bitly API key."
-    },
-    "kuttit_apikey_title": {
-        "message": "Kutt.it API Key",
-        "description": "Options: Label for Kutt.it API key text field."
-    },
-    "kuttit_apikey_description": {
-        "message": "API Key mit Kutt.it anlegen",
-        "description": "Options: Link to generate Kutt.it API key."
-    },
-    "kuttit_domain_title": {
-        "message": "Kutt.it Custom Domain",
-        "description": "Options: Label for Kutt.it custom domain text field."
-    },
-    "kuttit_domain_description": {
-        "message": "(optional) eine eigene Domain mit kutt.it benutzen",
-        "description": "Options: Link to set Kutt.it custom domain."
-    },
-    "tly_apikey_title": {
-        "message": "t.ly API Key",
-        "description": "Options: Label for t.ly API key text field."
-    },
-    "tly_apikey_description": {
-        "message": "API Key mit t.ly anlegen",
-        "description": "Options: Link to generate t.ly API key."
-    },
-    "tly_domain_title": {
-        "message": "t.ly Custom Domain",
-        "description": "Options: Label for t.ly custom domain text field."
-    },
-    "tly_domain_description": {
-        "message": "(optional) eine eigene Domain mit t.ly benutzen",
-        "description": "Options: Link to set t.ly custom domain."
-    },
-    "customurl_title": {
-        "message": "Benutzer-URL",
-        "description": "Options: Label for custom URL text field."
-    },
-    "customurl_description": {
-        "message": "Verwenden Sie %URL% als Platzhalter für die lange URL.",
-        "description": "Options: Help text for custom URL."
-    },
+  "service_title": {
+    "message": "Kurz-URL-Service",
+    "description": "Options: Label for selecting which service (is.gd, ...) to use."
+  },
+  "service_none": {
+    "message": "(Kein externer Service)",
+    "description": "Options: No shortening service, copy found short URL or full URL only."
+  },
+  "service_custom": {
+    "message": "Benutzerdefiniert (unten angeben)",
+    "description": "Options: Placeholder for custom URL option in dropdown."
+  },
+  "bitly_apikey_title": {
+    "message": "Bitly Generic Access Token",
+    "description": "Options: Label for Bitly API key text field."
+  },
+  "bitly_apikey_description": {
+    "message": "API key mit Bitly anlegen",
+    "description": "Options: Link to generate Bitly API key."
+  },
+  "kuttit_apikey_title": {
+    "message": "Kutt.it API Key",
+    "description": "Options: Label for Kutt.it API key text field."
+  },
+  "kuttit_apikey_description": {
+    "message": "API Key mit Kutt.it anlegen",
+    "description": "Options: Link to generate Kutt.it API key."
+  },
+  "kuttit_domain_title": {
+    "message": "Kutt.it Custom Domain",
+    "description": "Options: Label for Kutt.it custom domain text field."
+  },
+  "kuttit_domain_description": {
+    "message": "(optional) eine eigene Domain mit kutt.it benutzen",
+    "description": "Options: Link to set Kutt.it custom domain."
+  },
+  "tly_apikey_title": {
+    "message": "t.ly API Key",
+    "description": "Options: Label for t.ly API key text field."
+  },
+  "tly_apikey_description": {
+    "message": "API Key mit t.ly anlegen",
+    "description": "Options: Link to generate t.ly API key."
+  },
+  "tly_domain_title": {
+    "message": "t.ly Custom Domain",
+    "description": "Options: Label for t.ly custom domain text field."
+  },
+  "tly_domain_description": {
+    "message": "(optional) eine eigene Domain mit t.ly benutzen",
+    "description": "Options: Link to set t.ly custom domain."
+  },
+  "customurl_title": {
+    "message": "Benutzer-URL",
+    "description": "Options: Label for custom URL text field."
+  },
+  "customurl_description": {
+    "message": "Verwenden Sie %URL% als Platzhalter für die lange URL.",
+    "description": "Options: Help text for custom URL."
+  },
 
-    "shorten_canonical_title": {
-        "message": "Kanonische URL kürzen wenn länger als",
-        "description": "Options: Label for maximum URL length before forcing shortening."
-    },
-    "shorten_canonical_description": {
-        "message": "Manche Seiten haben 'kurze' URLs, die nicht wirklich kurz sind. Benutze den Kurz-URL-Service wenn die kanonische URL länger ist als X Zeichen. (0 = niemals kürzen)",
-        "description": "Options: Help text for forcing shortening of long canonical URLs."
-    },
+  "shorten_canonical_title": {
+    "message": "Kanonische URL kürzen wenn länger als",
+    "description": "Options: Label for maximum URL length before forcing shortening."
+  },
+  "shorten_canonical_description": {
+    "message": "Manche Seiten haben 'kurze' URLs, die nicht wirklich kurz sind. Benutze den Kurz-URL-Service wenn die kanonische URL länger ist als X Zeichen. (0 = niemals kürzen)",
+    "description": "Options: Help text for forcing shortening of long canonical URLs."
+  },
 
-    "use_special_title": {
-        "message": "Besondere URL-Formate für bekannte Seiten verwenden",
-        "description": "Options: Label for using youtu.be and other special known short URLs."
-    },
-    "use_special_description": {
-        "message": "Manche Seiten haben spezielle Kurz-URLs, z.B. youtu.be.",
-        "description": "Options: Help text for using special shortening cases."
-    },
+  "use_special_title": {
+    "message": "Besondere URL-Formate für bekannte Seiten verwenden",
+    "description": "Options: Label for using youtu.be and other special known short URLs."
+  },
+  "use_special_description": {
+    "message": "Manche Seiten haben spezielle Kurz-URLs, z.B. youtu.be.",
+    "description": "Options: Help text for using special shortening cases."
+  },
 
-    "strip_utm_title": {
-        "message": "?utm_* Parameter aus der URL entfernen",
-        "description": "Options: Label for removing known marketing parameters from URLs."
-    },
-    "strip_utm_description": {
-        "message": "Marketing-Kampagnen fügen oft unnötige ?utm_campaign=irgendwas Parameter in die URL ein, die wir problemlos entfernen können.",
-        "description": "Options: Help text for removing known marketing parameters from URL."
-    },
+  "strip_utm_title": {
+    "message": "?utm_* Parameter aus der URL entfernen",
+    "description": "Options: Label for removing known marketing parameters from URLs."
+  },
+  "strip_utm_description": {
+    "message": "Marketing-Kampagnen fügen oft unnötige ?utm_campaign=irgendwas Parameter in die URL ein, die wir problemlos entfernen können.",
+    "description": "Options: Help text for removing known marketing parameters from URL."
+  },
 
-    "keep_hash_title": {
-        "message": "URL #hash beibehalten",
-        "description": "Options: Label for keeping URL #hash if present."
-    },
-    "keep_hash_description": {
-        "message": "Fügt #hash Teil von meineseite.de/seite#hash der Kurz-URL wieder hinzu.",
-        "description": "Options: Help text for keeping URL #hash if present."
-    },
+  "keep_hash_title": {
+    "message": "URL #hash beibehalten",
+    "description": "Options: Label for keeping URL #hash if present."
+  },
+  "keep_hash_description": {
+    "message": "Fügt #hash Teil von meineseite.de/seite#hash der Kurz-URL wieder hinzu.",
+    "description": "Options: Help text for keeping URL #hash if present."
+  },
 
-    "notify_title": {
-        "message": "Hinweis-Popup anzeigen wenn erfolgreich",
-        "description": "Options: Label for showing notification popup when URL was generated."
-    },
-    "notify_description": {
-        "message": "Fehler werden immer angezeigt.",
-        "description": "Options: Help text for showing notification popup on success."
-    },
+  "notify_title": {
+    "message": "Hinweis-Popup anzeigen wenn erfolgreich",
+    "description": "Options: Label for showing notification popup when URL was generated."
+  },
+  "notify_description": {
+    "message": "Fehler werden immer angezeigt.",
+    "description": "Options: Help text for showing notification popup on success."
+  },
 
-    "copy_title_title": {
-        "message": "Seiten-Titel zusammen mit Kurz-URL kopieren",
-        "description": "Options: Label for copying page title along with URL."
-    },
-    "copy_title_description": {
-        "message": "Beispiel: 'So why are Pandas so cute? http://nyti.ms/2xGSRyh'",
-        "description": "Options: Help text for copying page title with URL."
-    },
+  "copy_title_title": {
+    "message": "Seiten-Titel zusammen mit Kurz-URL kopieren",
+    "description": "Options: Label for copying page title along with URL."
+  },
+  "copy_title_description": {
+    "message": "Beispiel: 'So why are Pandas so cute? http://nyti.ms/2xGSRyh'",
+    "description": "Options: Help text for copying page title with URL."
+  },
 
-    "save_button": {
-        "message": "Speichern",
-        "description": "Options: Button label for save options."
-    },
-    "saved_notice": {
-        "message": "Gespeichert!",
-        "description": "Options: Indicator that options were saved."
-    }
+  "save_button": {
+    "message": "Speichern",
+    "description": "Options: Button label for save options."
+  },
+  "saved_notice": {
+    "message": "Gespeichert!",
+    "description": "Options: Indicator that options were saved."
+  }
 }

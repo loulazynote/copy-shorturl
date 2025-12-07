@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <style>
-    body {
-      background-color: white;
-      padding: 1em;
-    }
-    label[for], p em {
-      display: block;
-    }
-    input[type=checkbox] {
-      float: left;
-      margin-right: 1em;
-    }
-    p {
-      margin-bottom: 2em;
-    }
-    #saved {
-      font-weight: bold;
-    }
+      body {
+        background-color: white;
+        padding: 1em;
+      }
+      label[for],
+      p em {
+        display: block;
+      }
+      input[type='checkbox'] {
+        float: left;
+        margin-right: 1em;
+      }
+      p {
+        margin-bottom: 2em;
+      }
+      #saved {
+        font-weight: bold;
+      }
     </style>
   </head>
 
@@ -31,7 +32,9 @@
         <select id="service">
           <option value="none" data-i18n="service_none">none</option>
           <!--<option value="isgd">is.gd (https://is.gd/abcde)</option>-->
-          <option value="tinyurl">tinyurl.com (https://tinyurl.com/abcde)</option>
+          <option value="tinyurl">
+            tinyurl.com (https://tinyurl.com/abcde)
+          </option>
           <option value="cuttly">cutt.ly (https://cutt.ly/abcde)</option>
           <option value="goly">go.ly (https://go.ly/abcde)</option>
           <option value="vurl">vurl.com (https://vurl.com/abcde)</option>
@@ -43,88 +46,113 @@
       </p>
 
       <!-- Bitly API key -->
-      <p id="bitly_details" style="display:none">
-        <label for="bitly_apikey" data-i18n="bitly_apikey_title">bitly api key</label>
-        <input type="password" id="bitly_apikey">
-        <a href="https://app.bitly.com/settings/api/"><em data-i18n="bitly_apikey_description">acquire API key</em></a>
+      <p id="bitly_details" style="display: none">
+        <label for="bitly_apikey" data-i18n="bitly_apikey_title"
+          >bitly api key</label
+        >
+        <input type="password" id="bitly_apikey" />
+        <a href="https://app.bitly.com/settings/api/"
+          ><em data-i18n="bitly_apikey_description">acquire API key</em></a
+        >
       </p>
 
       <!-- Kutt.it API key -->
-      <p id="kuttit_details" style="display:none">
-        <label for="kuttit_apikey" data-i18n="kuttit_apikey_title">kutt.it api key</label>
-        <input type="password" id="kuttit_apikey">
-        <a href="https://kutt.it/settings"><em data-i18n="kuttit_apikey_description">Acquire API key</em></a>
+      <p id="kuttit_details" style="display: none">
+        <label for="kuttit_apikey" data-i18n="kuttit_apikey_title"
+          >kutt.it api key</label
+        >
+        <input type="password" id="kuttit_apikey" />
+        <a href="https://kutt.it/settings"
+          ><em data-i18n="kuttit_apikey_description">Acquire API key</em></a
+        >
 
-        <label for="kuttit_domain" data-i18n="kuttit_domain_title">kutt.it domain</label>
-        <input type="text" id="kuttit_domain">
-        <a href="https://kutt.it/settings"><em data-i18n="kuttit_domain_description">Kutt.it custom domain</em></a>
+        <label for="kuttit_domain" data-i18n="kuttit_domain_title"
+          >kutt.it domain</label
+        >
+        <input type="text" id="kuttit_domain" />
+        <a href="https://kutt.it/settings"
+          ><em data-i18n="kuttit_domain_description"
+            >Kutt.it custom domain</em
+          ></a
+        >
       </p>
 
       <!-- t.ly API key -->
-      <p id="tly_details" style="display:none">
-        <label for="tly_apikey" data-i18n="tly_apikey_title">t.ly api key</label>
-        <input type="password" id="tly_apikey">
-        <a href="https://t.ly/settings#/api"><em data-i18n="tly_apikey_description">Acquire API key</em></a>
+      <p id="tly_details" style="display: none">
+        <label for="tly_apikey" data-i18n="tly_apikey_title"
+          >t.ly api key</label
+        >
+        <input type="password" id="tly_apikey" />
+        <a href="https://t.ly/settings#/api"
+          ><em data-i18n="tly_apikey_description">Acquire API key</em></a
+        >
 
         <label for="tly_domain" data-i18n="tly_domain_title">t.ly domain</label>
-        <input type="text" id="tly_domain">
-        <a href="https://t.ly/settings#/domain"><em data-i18n="tly_domain_description">t.ly custom domain</em></a>
+        <input type="text" id="tly_domain" />
+        <a href="https://t.ly/settings#/domain"
+          ><em data-i18n="tly_domain_description">t.ly custom domain</em></a
+        >
       </p>
 
       <!-- Custom URL + documentation link -->
-      <p id="custom_details" style="display:none">
+      <p id="custom_details" style="display: none">
         <label for="custom_url" data-i18n="customurl_title">custom url</label>
-        <input type="text" id="custom_url">
+        <input type="text" id="custom_url" />
         <em data-i18n="customurl_description">%URL%</em>
       </p>
 
       <!-- Shorten canconical -->
       <p id="always_shorten">
-        <label for="shorten_canonical" data-i18n="shorten_canonical_title">Max len</label>
-        <input type="number" id="shorten_canonical" min="0" value="0">
+        <label for="shorten_canonical" data-i18n="shorten_canonical_title"
+          >Max len</label
+        >
+        <input type="number" id="shorten_canonical" min="0" value="0" />
         <em data-i18n="shorten_canonical_description">0 = never</em>
       </p>
 
       <!-- Use special, known shorteners? -->
       <p>
-        <input type="checkbox" id="use_special">
-        <label for="use_special" data-i18n="use_special_title">use special?</label>
+        <input type="checkbox" id="use_special" />
+        <label for="use_special" data-i18n="use_special_title"
+          >use special?</label
+        >
         <em data-i18n="use_special_description">youtu.be</em>
       </p>
 
       <!-- Strip utm (note, misspelled as urm, oops) -->
       <p>
-        <input type="checkbox" id="strip_urm">
+        <input type="checkbox" id="strip_urm" />
         <label for="strip_urm" data-i18n="strip_utm_title">strip utm</label>
         <em data-i18n="strip_utm_description">urm marketing parameters</em>
       </p>
 
       <!-- Add #hash if present -->
       <p>
-        <input type="checkbox" id="keep_hash">
+        <input type="checkbox" id="keep_hash" />
         <label for="keep_hash" data-i18n="keep_hash_title">keep hash</label>
         <em data-i18n="keep_hash_description">url #hash</em>
       </p>
 
       <!-- Show notification? -->
       <p>
-        <input type="checkbox" id="notify">
+        <input type="checkbox" id="notify" />
         <label for="notify" data-i18n="notify_title">notify?</label>
         <em data-i18n="notify_description">notify on URL</em>
       </p>
 
       <!-- Copy title + URL or just URL? -->
       <p>
-        <input type="checkbox" id="copy_title">
+        <input type="checkbox" id="copy_title" />
         <label for="copy_title" data-i18n="copy_title_title">copy title?</label>
         <em data-i18n="copy_title_description">copy page title</em>
       </p>
 
       <p>
         <button type="submit" data-i18n="save_button">Save</button>
-        <span id="saved" style="display:none" data-i18n="saved_notice">(saved)</span>
+        <span id="saved" style="display: none" data-i18n="saved_notice"
+          >(saved)</span
+        >
       </p>
-
     </form>
 
     <script src="../js/options.js"></script>

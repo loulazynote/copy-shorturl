@@ -9,261 +9,264 @@ const DEFAULT_SERVICE = 'isgd';
 // variants. Note: return a fetch() promise.
 // Do not forget to add origins to permissions in manifest.
 const serviceUrls = {
-    none: {}, // Placeholder.
+  none: {}, // Placeholder.
 
-    isgd: {
-        url: 'https://is.gd/api.php?longurl=%URL%',
+  isgd: {
+    url: 'https://is.gd/api.php?longurl=%URL%',
+  },
+
+  tinyurl: {
+    url: 'https://tinyurl.com/api-create.php?url=%URL%',
+    force_https: true,
+  },
+
+  cuttly: {
+    request: (url) => {
+      let form = new FormData();
+      form.append('url', url);
+      form.append('domain', 0); // Needed?
+      return fetch('https://cutt.ly/scripts/shortenUrl.php', {
+        method: 'POST',
+        body: form,
+      });
     },
+    result: (response) => response.text(),
+  },
 
-    tinyurl: {
-        url: 'https://tinyurl.com/api-create.php?url=%URL%',
-        force_https: true,
+  vurl: {
+    url: 'https://vurl.com/api.php?url=%URL%',
+    force_https: true,
+  },
+
+  bitly: {
+    // https://dev.bitly.com/v4/#operation/createBitlink
+    request: async (url) => {
+      const ret = await browser.storage.local.get('prefs');
+      const prefs = ret['prefs'] || {};
+      if (!prefs.bitly_apikey) {
+        throw new Error(_('apikey_error'));
+      }
+
+      return fetch('https://api-ssl.bitly.com/v4/shorten', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${prefs.bitly_apikey}`,
+        },
+        body: JSON.stringify({ long_url: url }),
+      });
     },
-
-    cuttly: {
-        request: (url) => {
-            let form = new FormData();
-            form.append('url', url);
-            form.append('domain', 0); // Needed?
-            return fetch('https://cutt.ly/scripts/shortenUrl.php', {
-                method: 'POST',
-                body: form,
-            });
-        },
-        result: (response) => response.text(),
+    result: async (response) => {
+      const res = await response.json();
+      return res['link'];
     },
+    force_https: true,
+  },
 
-    vurl: {
-        url: 'https://vurl.com/api.php?url=%URL%',
-        force_https: true,
+  kuttit: {
+    // https://docs.kutt.it/#tag/links/paths/~1links/post
+    request: async (url) => {
+      const ret = await browser.storage.local.get('prefs');
+      const prefs = ret['prefs'] || {};
+      if (!prefs.kuttit_apikey) {
+        throw new Error(_('apikey_error'));
+      }
+
+      let payload = { target: url };
+      if (prefs['kuttit_domain'] != '') {
+        // Use custom domain only if set.
+        payload['domain'] = prefs['kuttit_domain'];
+      }
+
+      return fetch('https://kutt.it/api/v2/links', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-API-Key': prefs.kuttit_apikey,
+        },
+        body: JSON.stringify(payload),
+      });
     },
-
-    bitly: {
-        // https://dev.bitly.com/v4/#operation/createBitlink
-        request: async (url) => {
-            const ret = await browser.storage.local.get('prefs');
-            const prefs = ret['prefs'] || {};
-            if (!prefs.bitly_apikey) {
-                throw new Error(_('apikey_error'));
-            }
-
-            return fetch('https://api-ssl.bitly.com/v4/shorten', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${prefs.bitly_apikey}`,
-                },
-                body: JSON.stringify({ long_url: url }),
-            });
-        },
-        result: async (response) => {
-            const res = await response.json();
-            return res['link'];
-        },
-        force_https: true,
+    result: async (response) => {
+      const res = await response.json();
+      return res['link'];
     },
+    force_https: true,
+  },
 
-    kuttit: {
-        // https://docs.kutt.it/#tag/links/paths/~1links/post
-        request: async (url) => {
-            const ret = await browser.storage.local.get('prefs');
-            const prefs = ret['prefs'] || {};
-            if (!prefs.kuttit_apikey) {
-                throw new Error(_('apikey_error'));
-            }
+  tly: {
+    // https://t.ly/static_docs/index.html?c=43242#short-link-management
+    request: async (url) => {
+      const ret = await browser.storage.local.get('prefs');
+      const prefs = ret['prefs'] || {};
+      if (!prefs.tly_apikey) {
+        throw new Error(_('apikey_error'));
+      }
 
-            let payload = { target: url };
-            if (prefs['kuttit_domain'] != '') {
-                // Use custom domain only if set.
-                payload['domain'] = prefs['kuttit_domain'];
-            }
+      let headers = {
+        Authorization: `Bearer ${prefs.tly_apikey}`,
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      };
 
-            return fetch('https://kutt.it/api/v2/links', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-API-Key': prefs.kuttit_apikey,
-                },
-                body: JSON.stringify(payload),
-            });
-        },
-        result: async (response) => {
-            const res = await response.json();
-            return res['link'];
-        },
-        force_https: true,
+      let body = {
+        long_url: url,
+      };
+
+      if (prefs['tly_domain']) {
+        // Use custom domain only if set.
+        body['domain'] = prefs['tly_domain'];
+      }
+      return fetch('https://api.t.ly/api/v1/link/shorten', {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify(body),
+      });
     },
-
-    tly: {
-        // https://t.ly/static_docs/index.html?c=43242#short-link-management
-        request: async (url) => {
-            const ret = await browser.storage.local.get('prefs');
-            const prefs = ret['prefs'] || {};
-            if (!prefs.tly_apikey) {
-                throw new Error(_('apikey_error'));
-            }
-
-            let headers = {
-                Authorization: `Bearer ${prefs.tly_apikey}`,
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            };
-
-            let body = {
-                long_url: url,
-            };
-
-            if (prefs['tly_domain']) {
-                // Use custom domain only if set.
-                body['domain'] = prefs['tly_domain'];
-            }
-            return fetch('https://api.t.ly/api/v1/link/shorten', {
-                method: 'POST',
-                headers: headers,
-                body: JSON.stringify(body),
-            });
-        },
-        result: async (response) => {
-            const res = await response.json();
-            return res['short_url'];
-        },
-        force_https: true,
+    result: async (response) => {
+      const res = await response.json();
+      return res['short_url'];
     },
-    /** Special services: Cannot be chosen manually. **/
-    // Note: No special services implemented at this time after git.io shut down.
+    force_https: true,
+  },
+  /** Special services: Cannot be chosen manually. **/
+  // Note: No special services implemented at this time after git.io shut down.
 };
 
 /** Create a short URL from is.gd, tinyurl, etc. */
 function createShortUrl(url, force_service) {
-    let req;
-    
-    try {
-        // Get shortening service from prefs.
-        return browser.storage.local
-            .get('prefs')
-            .then((ret) => {
-                const prefs = ret['prefs'] || {};
-                let service;
+  let req;
 
-                // Hardcoded special-cased websites can enforce a shortening service.
-                if (prefs.service !== 'none' && force_service) {
-                    service = serviceUrls[force_service];
-                } else {
-                    switch (prefs.service) {
-                        case 'custom':
-                            service = { url: prefs.custom_url };
-                            break;
-                        case 'none':
-                            return url; // Skip shortening altogether.
-                        default:
-                            service = serviceUrls[prefs.service];
-                            service ||= serviceUrls[DEFAULT_SERVICE]; // Fallback to default.
-                            break;
-                    }
-                }
+  try {
+    // Get shortening service from prefs.
+    return browser.storage.local
+      .get('prefs')
+      .then((ret) => {
+        const prefs = ret['prefs'] || {};
+        let service;
 
-                if (service.request) {
-                  req = service.request(url);
-                  
-                } else {
-                    let _uri = service.url.replace('%URL%', encodeURIComponent(url));
-                    req = fetch(_uri);
-                }
+        // Hardcoded special-cased websites can enforce a shortening service.
+        if (prefs.service !== 'none' && force_service) {
+          service = serviceUrls[force_service];
+        } else {
+          switch (prefs.service) {
+            case 'custom':
+              service = { url: prefs.custom_url };
+              break;
+            case 'none':
+              return url; // Skip shortening altogether.
+            default:
+              service = serviceUrls[prefs.service];
+              service ||= serviceUrls[DEFAULT_SERVICE]; // Fallback to default.
+              break;
+          }
+        }
 
-                return req
-                    .then((response) => {
-                        if (response.ok) {
-                            let result = service.result ? service.result(response) : response.text();
-                            return result;
-                        } else {
-                            throw new Error(_('shorten_error'));
-                        }
-                    })
-                    .then((url) => {
-                        // Rewrite shortened URL to https if the service requires it.
-                        if (service.force_https || false) {
-                            let parsedUrl = new URL(url);
-                            parsedUrl.protocol = 'https';
-                            url = parsedUrl.href;
-                        }
-                        return url;
-                    })
-                    .catch((err) => {
-                        notify(err.message);
-                    });
-            })
-            .catch((err) => {
-                console.log(err.message);
-                throw new Error(_('shorten_error'));
-            });
-    } catch (e) {
-        notify(e.message);
-        return false;
-    }
+        if (service.request) {
+          req = service.request(url);
+        } else {
+          let _uri = service.url.replace('%URL%', encodeURIComponent(url));
+          req = fetch(_uri);
+        }
+
+        return req
+          .then((response) => {
+            if (response.ok) {
+              let result = service.result
+                ? service.result(response)
+                : response.text();
+              return result;
+            } else {
+              throw new Error(_('shorten_error'));
+            }
+          })
+          .then((url) => {
+            // Rewrite shortened URL to https if the service requires it.
+            if (service.force_https || false) {
+              let parsedUrl = new URL(url);
+              parsedUrl.protocol = 'https';
+              url = parsedUrl.href;
+            }
+            return url;
+          })
+          .catch((err) => {
+            notify(err.message);
+          });
+      })
+      .catch((err) => {
+        console.log(err.message);
+        throw new Error(_('shorten_error'));
+      });
+  } catch (e) {
+    notify(e.message);
+    return false;
+  }
 }
 
 /** Finalize (notify and copy to clipboard) a detected or generated URL. */
 function finalizeUrl(longUrl, shortUrl, title) {
-    browser.storage.local.get('prefs').then((ret) => {
-        const prefs = ret['prefs'] || {};
-        let copyText;
+  browser.storage.local.get('prefs').then((ret) => {
+    const prefs = ret['prefs'] || {};
+    let copyText;
 
-        // Remove whitespace from final URL.
-        shortUrl = shortUrl.trim();
+    // Remove whitespace from final URL.
+    shortUrl = shortUrl.trim();
 
-        // Add page title, if selected.
-        if (prefs.copy_title === true && title) {
-            copyText = title + ' ' + shortUrl;
-        } else {
-            copyText = shortUrl;
-        }
-        navigator.clipboard.writeText(copyText);
+    // Add page title, if selected.
+    if (prefs.copy_title === true && title) {
+      copyText = title + ' ' + shortUrl;
+    } else {
+      copyText = shortUrl;
+    }
+    navigator.clipboard.writeText(copyText);
 
-        if (prefs.notify !== false) {
-            notify(shortUrl);
-        }
-    });
+    if (prefs.notify !== false) {
+      notify(shortUrl);
+    }
+  });
 }
 
 /** Handle a URL found on the page */
 export default function processUrl(found_url) {
-    let url = found_url['url'];
-    let title = found_url['title'] || '';
-    let hash = found_url['hash'] || '';
+  let url = found_url['url'];
+  let title = found_url['title'] || '';
+  let hash = found_url['hash'] || '';
 
-    browser.storage.local.get('prefs').then((ret) => {
-        const prefs = ret['prefs'] || {};
+  browser.storage.local.get('prefs').then((ret) => {
+    const prefs = ret['prefs'] || {};
 
-        if (prefs.strip_urm !== false || prefs.keep_hash !== false) {
-            let parsedUrl = new URL(url);
+    if (prefs.strip_urm !== false || prefs.keep_hash !== false) {
+      let parsedUrl = new URL(url);
 
-            // Remove UTM tracking codes (from Google Analytics) if present.
-            if (prefs.strip_urm !== false && /[?&]utm_/.test(parsedUrl.search)) {
-                // Find and delete all utm_ tracking parameters.
-                const utm_match = /[?&](utm_[^=]+)=/;
-                while (true) {
-                    let utm_param = utm_match.exec(parsedUrl.search);
-                    if (!utm_param) break;
-                    parsedUrl.searchParams.delete(utm_param[1]);
-                }
-            }
-
-            // Keep URL hash if present.
-            if (prefs.keep_hash !== false && hash) {
-                parsedUrl.hash = hash;
-            }
-
-            url = parsedUrl.toString();
+      // Remove UTM tracking codes (from Google Analytics) if present.
+      if (prefs.strip_urm !== false && /[?&]utm_/.test(parsedUrl.search)) {
+        // Find and delete all utm_ tracking parameters.
+        const utm_match = /[?&](utm_[^=]+)=/;
+        while (true) {
+          let utm_param = utm_match.exec(parsedUrl.search);
+          if (!utm_param) break;
+          parsedUrl.searchParams.delete(utm_param[1]);
         }
+      }
 
-        // Shorten URL if it's not considered "short" or exceeds length limit.
-        if (!found_url['short'] || (prefs.shorten_canonical > 0 && url.length > prefs.shorten_canonical)) {
-            createShortUrl(url, found_url['force_service']).then((result) => {
-                
-                finalizeUrl(url, result, title);
-            });
-        } else {
-            finalizeUrl(null, url, title);
-        }
-    });
+      // Keep URL hash if present.
+      if (prefs.keep_hash !== false && hash) {
+        parsedUrl.hash = hash;
+      }
+
+      url = parsedUrl.toString();
+    }
+
+    // Shorten URL if it's not considered "short" or exceeds length limit.
+    if (
+      !found_url['short'] ||
+      (prefs.shorten_canonical > 0 && url.length > prefs.shorten_canonical)
+    ) {
+      createShortUrl(url, found_url['force_service']).then((result) => {
+        finalizeUrl(url, result, title);
+      });
+    } else {
+      finalizeUrl(null, url, title);
+    }
+  });
 }
