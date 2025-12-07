@@ -95,7 +95,7 @@ const serviceUrls = {
   },
 
   tly: {
-    // https://t.ly/static_docs/index.html?c=43242#short-link-management
+    // https://t.ly/static_docs/index.html#short-link-management
     request: async (url) => {
       const ret = await browser.storage.local.get('prefs');
       const prefs = ret['prefs'] || {};
